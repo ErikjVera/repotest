@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Resultados</title>
+    <style>
+        html {
+  max-width: 400px;
+  margin: auto;
+}
+
+@media (max-width: 400px) {
+  html {
+    margin: auto 1rem;
+  }
+} 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga1"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+               <tr>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>
+                    <select class="equipo-select" data-liga="liga2"></select>
+                </th>
+                <th>1 X 2 <br>
+                    <input type="checkbox" name="1" value="ON" />
+                    <input type="checkbox" name="X" value="ON" />
+                    <input type="checkbox" name="2" value="ON" />
+                </th>
+            </tr>
+            
+        </thead>
+        
+    </table>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+        // Equipos por liga
+        const equiposPorLiga = {
+            liga1: [
+                "Real Madrid", "Girona", "Barcelona", "Atlético de Madrid", "Athletic de Bilbao",
+            "Real Sociedad", "Betis", "Las Palmas", "Valencia", "Getafe", "Rayo", "Villareal",
+            "Alavés", "Osasuna", "Sevilla", "Cádiz", "Mallorca", "Celta", "Granada", "Almeria"
+            ],
+            liga2: [
+                 "Leganés", "Real Sporting", "Real Valladolid", "Espanyol", "Racing de Ferrol",
+                "Eibar", "Elche", "Racing", "Tenerife", "Levante", "Real Oviedo", "Real Zaragoza",
+                "Burgos CF", "Mirandés", "Eldense", "Albacete", "Andorra", "Villarreal B", "Huesca",
+                "Amorebieta", "Alcorcón", "Cartagena"
+            ]
+        };
+
+        // Función para llenar los selects
+        function llenarSelects() {
+            const selects = document.querySelectorAll('.equipo-select');
+
+            selects.forEach(select => {
+                const liga = select.dataset.liga;
+                const equipos = equiposPorLiga[liga];
+
+                equipos.forEach(equipo => {
+                    const option = document.createElement('option');
+                    option.value = equipo;
+                    option.text = equipo;
+                    select.add(option);
+                });
+            });
+        }
+
+        // Llama a la función al cargar la página
+        window.onload = llenarSelects;
+    </script>
+</body>
+</html>
