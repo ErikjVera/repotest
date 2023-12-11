@@ -134,7 +134,7 @@
                 ['Valladolid', 'R.Ferrol'],
                 ['Alavés', 'R.Madrid'],
             ],
-           
+            // Puedes agregar más jornadas según sea necesario
         };
 
         function llenarSelects() {
@@ -163,8 +163,8 @@
 
         function isChecked(opcion, partidoIndex, jornada) {
             // Obtener el estado almacenado de los checkboxes
-            const storedState = JSON.parse(localStorage.getItem(jornada)) || {};
-            return storedState[partidoIndex] && storedState[partidoIndex][opcion] ? 'checked' : '';
+            const storedState = JSON.parse(localStorage.getItem(`${jornada}_${partidoIndex}`)) || {};
+            return storedState[opcion] ? 'checked' : '';
         }
 
         function actualizarEstadoCheckboxes() {
@@ -173,17 +173,12 @@
 
             checkboxes.forEach((checkbox) => {
                 checkbox.addEventListener('change', function () {
-                    const storedState = JSON.parse(localStorage.getItem(selectedJornada)) || {};
-
-                    // Obtener el índice del partido actual
                     const partidoIndex = Array.from(this.closest('tr').parentNode.children).indexOf(this.closest('tr'));
 
-                    if (!storedState[partidoIndex]) {
-                        storedState[partidoIndex] = {};
-                    }
+                    const storedState = JSON.parse(localStorage.getItem(`${selectedJornada}_${partidoIndex}`)) || {};
 
-                    storedState[partidoIndex][this.name] = this.checked;
-                    localStorage.setItem(selectedJornada, JSON.stringify(storedState));
+                    storedState[this.name] = this.checked;
+                    localStorage.setItem(`${selectedJornada}_${partidoIndex}`, JSON.stringify(storedState));
                 });
             });
         }
