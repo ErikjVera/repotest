@@ -227,40 +227,21 @@
                 partidosBody.appendChild(fila);
             });
 
-            // Guardar el estado de los checkboxes en el localStorage
-            guardarEstadoCheckboxes(jornada);
+            // Restaurar el estado de los checkboxes desde localStorage
+            restaurarEstadoCheckboxes(jornada);
 
             // Actualizar la cabecera con la jornada seleccionada
             jornadaHeader.textContent = `Jornada ${jornada.slice(7)}`;
         }
 
-        function guardarEstadoCheckboxes(jornada) {
+        function restaurarEstadoCheckboxes(jornada) {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach((checkbox) => {
-                checkbox.addEventListener('change', function () {
-                    const key = `${checkbox.name}_${jornada}`;
-                    const isChecked = checkbox.checked;
-                    const storedData = localStorage.getItem(key);
-
-                    if (storedData) {
-                        const dataObj = JSON.parse(storedData);
-                        dataObj[checkbox.value] = isChecked;
-                        localStorage.setItem(key, JSON.stringify(dataObj));
-                    } else {
-                        const dataObj = { [checkbox.value]: isChecked };
-                        localStorage.setItem(key, JSON.stringify(dataObj));
-                    }
-                });
-
-                // Restaurar estado desde localStorage
                 const key = `${checkbox.name}_${jornada}`;
-                const storedData = localStorage.getItem(key);
+                const isChecked = localStorage.getItem(key);
 
-                if (storedData) {
-                    const dataObj = JSON.parse(storedData);
-                    checkbox.checked = dataObj[checkbox.value] || false;
-                } else {
-                    checkbox.checked = false;
+                if (isChecked !== null) {
+                    checkbox.checked = JSON.parse(isChecked);
                 }
             });
         }
