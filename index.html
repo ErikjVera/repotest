@@ -162,12 +162,10 @@
             });
         }
 
-        function isChecked(opcion, jornada) {
+        function isChecked(opcion, partidoIndex, jornada) {
             // Obtener el estado almacenado de los checkboxes
             const storedState = JSON.parse(localStorage.getItem(jornada)) || {};
-
-            // Devolver 'checked' si la opción está marcada en el almacenamiento local
-            return storedState[opcion] ? 'checked' : '';
+            return storedState[partidoIndex] && storedState[partidoIndex][opcion] ? 'checked' : '';
         }
 
         function actualizarEstadoCheckboxes() {
@@ -177,7 +175,15 @@
             checkboxes.forEach((checkbox) => {
                 checkbox.addEventListener('change', function () {
                     const storedState = JSON.parse(localStorage.getItem(selectedJornada)) || {};
-                    storedState[this.name] = this.checked;
+
+                    // Obtener el índice del partido actual
+                    const partidoIndex = Array.from(this.closest('tr').parentNode.children).indexOf(this.closest('tr'));
+
+                    if (!storedState[partidoIndex]) {
+                        storedState[partidoIndex] = {};
+                    }
+
+                    storedState[partidoIndex][this.name] = this.checked;
                     localStorage.setItem(selectedJornada, JSON.stringify(storedState));
                 });
             });
@@ -202,49 +208,20 @@
                 const cellExt = document.createElement('td');
                 cellExt.className = 'ext';
 
-                if (index === enfrentamientos.length - 1) {
-                    // Última fila, agregar dos conjuntos de checkboxes [0, 1, 2]
-                    cellExt.innerHTML = `
-                        <table class="tabla">
-                            <tr>
-                                <th>[0]</th>
-                                <th>[1]</th>
-                                <th>[2]</th>
-                            </tr>
-                            <tr>
-                                <th><input type="checkbox" name="0" value="ON" ${isChecked(0, jornada)} /></th>
-                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
-                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
-                            </tr>
-                        </table>
-                        <table class="tabla">
-                            <tr>
-                                <th>[0]</th>
-                                <th>[1]</th>
-                                <th>[2]</th>
-                            </tr>
-                            <tr>
-                                <th><input type="checkbox" name="0" value="ON" ${isChecked(0, jornada)} /></th>
-                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
-                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
-                            </tr>
-                        </table>`;
-                } else {
-                    // No es la última fila, agregar checkboxes 1x2
-                    cellExt.innerHTML = `
-                        <table class="tabla">
-                            <tr>
-                                <th>1</th>
-                                <th>X</th>
-                                <th>2</th>
-                            </tr>
-                            <tr>
-                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
-                                <th><input type="checkbox" name="X" value="ON" ${isChecked('X', jornada)} /></th>
-                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
-                            </tr>
-                        </table>`;
-                }
+                // Agregar checkboxes 1x2
+                cellExt.innerHTML = `
+                    <table class="tabla">
+                        <tr>
+                            <th>1</th>
+                            <th>X</th>
+                            <th>2</th>
+                        </tr>
+                        <tr>
+                            <th><input type="checkbox" name="1" value="ON" ${isChecked(1, index, jornada)} /></th>
+                            <th><input type="checkbox" name="X" value="ON" ${isChecked('X', index, jornada)} /></th>
+                            <th><input type="checkbox" name="2" value="ON" ${isChecked(2, index, jornada)} /></th>
+                        </tr>
+                    </table>`;
 
                 fila.appendChild(cellExt);
                 partidosBody.appendChild(fila);
