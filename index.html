@@ -239,13 +239,29 @@
             checkboxes.forEach((checkbox) => {
                 checkbox.addEventListener('change', function () {
                     const key = `${checkbox.name}_${jornada}`;
-                    localStorage.setItem(key, checkbox.checked);
+                    const isChecked = checkbox.checked;
+                    const storedData = localStorage.getItem(key);
+
+                    if (storedData) {
+                        const dataObj = JSON.parse(storedData);
+                        dataObj[checkbox.value] = isChecked;
+                        localStorage.setItem(key, JSON.stringify(dataObj));
+                    } else {
+                        const dataObj = { [checkbox.value]: isChecked };
+                        localStorage.setItem(key, JSON.stringify(dataObj));
+                    }
                 });
 
                 // Restaurar estado desde localStorage
                 const key = `${checkbox.name}_${jornada}`;
-                const isChecked = localStorage.getItem(key) === 'true';
-                checkbox.checked = isChecked;
+                const storedData = localStorage.getItem(key);
+
+                if (storedData) {
+                    const dataObj = JSON.parse(storedData);
+                    checkbox.checked = dataObj[checkbox.value] || false;
+                } else {
+                    checkbox.checked = false;
+                }
             });
         }
 
