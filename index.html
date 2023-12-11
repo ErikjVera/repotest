@@ -227,7 +227,7 @@
                 partidosBody.appendChild(fila);
             });
 
-            // Restaurar el estado de los checkboxes desde localStorage
+            // Restaurar y actualizar el estado de los checkboxes desde localStorage
             restaurarEstadoCheckboxes(jornada);
 
             // Actualizar la cabecera con la jornada seleccionada
@@ -243,6 +243,12 @@
                 if (isChecked !== null) {
                     checkbox.checked = JSON.parse(isChecked);
                 }
+
+                // Evento al cambiar el estado del checkbox
+                checkbox.addEventListener('change', function () {
+                    const isChecked = this.checked;
+                    localStorage.setItem(key, JSON.stringify(isChecked));
+                });
             });
         }
 
