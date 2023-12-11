@@ -13,14 +13,14 @@
         }
 
         @media (max-width: 600px) {
-              html {
+            html {
                 margin: auto 1rem;
                 padding:auto;
-                          }
-                         table {
-                    font-size: 0.7em;
-              }
             }
+            table {
+                font-size: 0.7em;
+            }
+        }
 
         table {
             width: 90%;
@@ -50,32 +50,35 @@
             max-width: 100%;
         }
 
-      
+
         #ee {
             background-color: #f2f2f2;
         }
 
-       
-
         /* Bordes superiores después de cierto número de partidos */
-       
+
         table tr:nth-child(odd) td {
-        background-color: #f2f2f2;
+            background-color: #f2f2f2;
         }
-        table tr:nth-child(even) td{
+
+        table tr:nth-child(even) td {
             background-color: white;
         }
-            table tr:nth-child(4) td {
-        border-bottom: 1px solid black;
+
+        table tr:nth-child(4) td {
+            border-bottom: 1px solid black;
         }
+
         table tr:nth-child(8) td {
-        border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
         }
+
         table tr:nth-child(11) td {
-        border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
         }
+
         table tr:nth-child(14) td {
-        border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
         }
     </style>
 </head>
@@ -159,6 +162,27 @@
             });
         }
 
+        function isChecked(opcion, jornada) {
+            // Obtener el estado almacenado de los checkboxes
+            const storedState = JSON.parse(localStorage.getItem(jornada)) || {};
+
+            // Devolver 'checked' si la opción está marcada en el almacenamiento local
+            return storedState[opcion] ? 'checked' : '';
+        }
+
+        function actualizarEstadoCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const selectedJornada = document.getElementById('jornadaSelect').value;
+
+            checkboxes.forEach((checkbox) => {
+                checkbox.addEventListener('change', function () {
+                    const storedState = JSON.parse(localStorage.getItem(selectedJornada)) || {};
+                    storedState[this.name] = this.checked;
+                    localStorage.setItem(selectedJornada, JSON.stringify(storedState));
+                });
+            });
+        }
+
         function actualizarTabla(jornada, jornadaHeader) {
             const partidosBody = document.getElementById('partidosBody');
             const enfrentamientos = jornadaEquipos[jornada];
@@ -188,9 +212,9 @@
                                 <th>[2]</th>
                             </tr>
                             <tr>
-                                <th><input type="checkbox" name="0" value="ON" /></th>
-                                <th><input type="checkbox" name="1" value="ON" /></th>
-                                <th><input type="checkbox" name="2" value="ON" /></th>
+                                <th><input type="checkbox" name="0" value="ON" ${isChecked(0, jornada)} /></th>
+                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
+                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
                             </tr>
                         </table>
                         <table class="tabla">
@@ -200,9 +224,9 @@
                                 <th>[2]</th>
                             </tr>
                             <tr>
-                                <th><input type="checkbox" name="0" value="ON" /></th>
-                                <th><input type="checkbox" name="1" value="ON" /></th>
-                                <th><input type="checkbox" name="2" value="ON" /></th>
+                                <th><input type="checkbox" name="0" value="ON" ${isChecked(0, jornada)} /></th>
+                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
+                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
                             </tr>
                         </table>`;
                 } else {
@@ -215,9 +239,9 @@
                                 <th>2</th>
                             </tr>
                             <tr>
-                                <th><input type="checkbox" name="1" value="ON" /></th>
-                                <th><input type="checkbox" name="X" value="ON" /></th>
-                                <th><input type="checkbox" name="2" value="ON" /></th>
+                                <th><input type="checkbox" name="1" value="ON" ${isChecked(1, jornada)} /></th>
+                                <th><input type="checkbox" name="X" value="ON" ${isChecked('X', jornada)} /></th>
+                                <th><input type="checkbox" name="2" value="ON" ${isChecked(2, jornada)} /></th>
                             </tr>
                         </table>`;
                 }
@@ -230,7 +254,10 @@
             jornadaHeader.textContent = `Jornada ${jornada.slice(7)}`;
         }
 
-        window.onload = llenarSelects;
+        window.onload = function () {
+            llenarSelects();
+            actualizarEstadoCheckboxes();
+        };
     </script>
 </body>
 
