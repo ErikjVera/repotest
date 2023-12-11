@@ -235,9 +235,9 @@
         }
 
         function restaurarEstadoCheckboxes(jornada) {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checkboxes = document.querySelectorAll(`input[type="checkbox"][name^="${jornada}"]`);
             checkboxes.forEach((checkbox) => {
-                const key = `${checkbox.name}_${jornada}`;
+                const key = checkbox.name;
                 const isChecked = localStorage.getItem(key);
 
                 if (isChecked !== null) {
