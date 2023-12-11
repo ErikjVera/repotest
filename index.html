@@ -50,17 +50,22 @@
             max-width: 100%;
         }
 
-        tbody>tr:nth-child(odd) {
-            background-color: #f2f2f2; /* Color de fondo para filas impares */
+      
+        #ee {
+            background-color: #f2f2f2;
         }
 
-        tbody>tr:nth-child(even) {
-            background-color: #fff; /* Color de fondo para filas pares */
-        }
+       
 
         /* Bordes superiores después de cierto número de partidos */
         tbody>tr:nth-child(5n) {
             border-top: 2px solid #ddd;
+        }
+        table tr:nth-child(odd) td {
+        background-color: #f2f2f2;
+        }
+        table tr:nth-child(even) td{
+            background-color: white;
         }
     </style>
 </head>
@@ -71,7 +76,7 @@
 
     <table>
         <thead>
-            <tr>
+            <tr id="ee">
                 <th></th>
                 <th class="ext" id="jornadaHeader"></th>
                 <th></th>
