@@ -1,437 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Resultados</title>
     <style>
+        /* Tu estilo CSS aquí */
         html {
-  max-width: 600px;
-  margin: auto;
-  
-}
-
-@media (max-width: 600px) {
-  html {
-    margin: auto 1rem;
-    padding:auto;
-  }
-}
-        table {
-            width:90%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            
-            
+            max-width: 600px;
+            margin: auto;
         }
 
-        th, td {
+        @media (max-width: 600px) {
+            html {
+                margin: auto 1rem;
+                padding: auto;
+            }
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: auto;
             text-align: center;
-           
         }
 
         th {
-          
-            width:100px;
+            width: 33%;
         }
-        
+
         .ext {
-          width: 20%;
-
+            width: 20%;
         }
 
-
-      
-
-        .tabla, .tabla * {
-          border: hidden;
-          margin: auto;
-          max-width: 100%;
-          
+        .tabla,
+        .tabla * {
+            border: hidden;
+            margin: auto;
+            max-width: 100%;
         }
 
-        thead>tr:nth-child(odd){
-          background-color: #f2f2f2;
+        tbody>tr:nth-child(odd) {
+            background-color: #f2f2f2; /* Color de fondo para filas impares */
         }
 
-        
+        tbody>tr:nth-child(even) {
+            background-color: #fff; /* Color de fondo para filas pares */
+        }
+
+        /* Bordes superiores después de cierto número de partidos */
+        tbody>tr:nth-child(5n) {
+            border-top: 2px solid #ddd;
+        }
     </style>
 </head>
+
 <body>
+    <label for="jornadaSelect">Selecciona la jornada:</label>
+    <select id="jornadaSelect"></select>
 
     <table>
         <thead>
             <tr>
-                <th>
-                    <select class="equipo-select1" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select2" data-liga="liga1"></select>
-                </th>
-                <th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
+                <th></th>
+                <th class="ext" id="jornadaHeader"></th>
+                <th></th>
             </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select3" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select4" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select5" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select6" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select7" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select8" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select9" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select10" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select11" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select12" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select13" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select14" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select15" data-liga="liga1"></select>
-                </th>
-                <th>
-                    <select class="equipo-select16" data-liga="liga1"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select1" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select2" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select3" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select4" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select5" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select6" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select7" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select8" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select9" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select10" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-               <tr>
-                <th>
-                    <select class="equipo-select11" data-liga="liga2"></select>
-                </th>
-                <th>
-                    <select class="equipo-select12" data-liga="liga2"></select>
-                </th>
-<th class="ext">
-                  <table class="tabla">
-                    <tr>
-                      <th>1</th>
-                      <th>X</th>
-                      <th>2</th>
-                    </tr>
-                    <tr>
-                      <th><input type="checkbox" name="1" value="ON" /></th>
-                      <th><input type="checkbox" name="X" value="ON" /></th>
-                      <th><input type="checkbox" name="2" value="ON" /></th>
-                    </tr>
-                  </table>
-                </th>
-            </tr>
-           
         </thead>
-       
+        <tbody id="partidosBody"></tbody>
     </table>
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
     <script>
-      // Equipos por liga
-      const equiposPorLiga = {
-          liga1: [
-              "Real Madrid", "Girona", "Barcelona", "Atlético de Madrid", "Athletic de Bilbao",
-              "Real Sociedad", "Betis", "Las Palmas", "Valencia", "Getafe", "Rayo", "Villareal",
-              "Alavés", "Osasuna", "Sevilla", "Cádiz", "Mallorca", "Celta", "Granada", "Almeria"
-          ],
-          liga2: [
-              "Leganés", "Real Sporting", "Real Valladolid", "Espanyol", "Racing de Ferrol",
-              "Eibar", "Elche", "Racing", "Tenerife", "Levante", "Real Oviedo", "Real Zaragoza",
-              "Burgos CF", "Mirandés", "Eldense", "Albacete", "Andorra", "Villarreal B", "Huesca",
-              "Amorebieta", "Alcorcón", "Cartagena"
-          ]
-      };
+        const jornadaEquipos = {
+            jornada27: [
+                ['Celta', 'Granada'],
+                ['Ath.Club', 'Ath.Madrid'],
+                ['Sevilla', 'Getafe'],
+                ['Valencia', 'Barcelona'],
+                ['Almeria', 'Mallorca'],
+                ['R.Sociedad', 'Betis'],
+                ['Las Palmas', 'Cádiz'],
+                ['R.Madrid', 'Villareal'],
+                ['Andorra', 'Espanyol'],
+                ['Sporting', 'Leganés'],
+                ['Alcorcón', 'Eibar'],
+                ['Levante', 'Huesca'],
+                ['Amorebieta', 'Zaragoza'],
+                ['R.Ferrol', 'Tenerife'],
+                ['Girona', 'Alavés'],
+            ],
+            jornada28: [
+                ['Rayo', 'Valencia'],
+                ['At.Madrid', 'Getafe'],
+                ['Granada', 'Sevilla'],
+                ['Barcelona', 'Almeria'],
+                ['Ath.Club', 'Las Palmas'],
+                ['Villareal', 'Celta'],
+                ['Betis', 'Girona'],
+                ['Cádiz', 'R.Sociedad'],
+                ['Mallorca', 'Osasuna'],
+                ['Espanyol', 'Burgos'],
+                ['Zaragoza', 'Levante'],
+                ['Eibar', 'Sporting'],
+                ['Leganés', 'Tenerife'],
+                ['Valladolid', 'R.Ferrol'],
+                ['Alavés', 'R.Madrid'],
+            ],
+            
+            // Puedes agregar más jornadas según sea necesario
+        };
 
-      // Función para llenar los selects
-      function llenarSelects() {
-        const selects = document.querySelectorAll('[class^="equipo-select"]');
+        function llenarSelects() {
+            const jornadaSelect = document.getElementById('jornadaSelect');
+            const partidosBody = document.getElementById('partidosBody');
+            const jornadaHeader = document.getElementById('jornadaHeader');
 
-        selects.forEach((select) => {
-            const liga = select.dataset.liga;
-            const equipos = equiposPorLiga[liga];
-
-            equipos.forEach(equipo => {
+            for (const jornada in jornadaEquipos) {
                 const option = document.createElement('option');
-                option.value = equipo;
-                option.text = equipo;
-                select.add(option);
-            });
-
-            // Recupera y establece el valor guardado en localStorage al cargar la página
-            const savedValue = localStorage.getItem(`${liga}_${select.classList[0]}_selected`);
-            if (savedValue) {
-                select.value = savedValue;
+                option.value = jornada;
+                option.text = `Jornada ${jornada.slice(7)}`; // Elimina "jornada" del nombre
+                jornadaSelect.add(option);
             }
 
-            // Agrega un evento para guardar el valor seleccionado en localStorage al cambiar
-            select.addEventListener('change', function () {
-                localStorage.setItem(`${liga}_${this.classList[0]}_selected`, this.value);
-            });
-        });
-    }
+            // Establecer la primera jornada como predeterminada
+            const primeraJornada = Object.keys(jornadaEquipos)[0];
+            jornadaSelect.value = primeraJornada;
+            actualizarTabla(primeraJornada, jornadaHeader);
 
-    // Llama a la función al cargar la página
-    window.onload = llenarSelects;
-  </script>
+            // Evento al cambiar la jornada
+            jornadaSelect.addEventListener('change', function () {
+                const selectedJornada = this.value;
+                actualizarTabla(selectedJornada, jornadaHeader);
+            });
+        }
+
+        function actualizarTabla(jornada, jornadaHeader) {
+            const partidosBody = document.getElementById('partidosBody');
+            const enfrentamientos = jornadaEquipos[jornada];
+
+            // Limpiar tabla antes de llenarla con los nuevos equipos
+            partidosBody.innerHTML = '';
+
+            enfrentamientos.forEach((pareja, index) => {
+                const fila = document.createElement('tr');
+
+                pareja.forEach((equipo) => {
+                    const cell = document.createElement('td');
+                    cell.textContent = equipo;
+                    fila.appendChild(cell);
+                });
+
+                const cellExt = document.createElement('td');
+                cellExt.className = 'ext';
+
+                if (index === enfrentamientos.length - 1) {
+                    // Última fila, agregar dos conjuntos de checkboxes [0, 1, 2]
+                    cellExt.innerHTML = `
+                        <table class="tabla">
+                            <tr>
+                                <th>[0]</th>
+                                <th>[1]</th>
+                                <th>[2]</th>
+                            </tr>
+                            <tr>
+                                <th><input type="checkbox" name="0" value="ON" /></th>
+                                <th><input type="checkbox" name="1" value="ON" /></th>
+                                <th><input type="checkbox" name="2" value="ON" /></th>
+                            </tr>
+                        </table>
+                        <table class="tabla">
+                            <tr>
+                                <th>[0]</th>
+                                <th>[1]</th>
+                                <th>[2]</th>
+                            </tr>
+                            <tr>
+                                <th><input type="checkbox" name="0" value="ON" /></th>
+                                <th><input type="checkbox" name="1" value="ON" /></th>
+                                <th><input type="checkbox" name="2" value="ON" /></th>
+                            </tr>
+                        </table>`;
+                } else {
+                    // No es la última fila, agregar checkboxes 1x2
+                    cellExt.innerHTML = `
+                        <table class="tabla">
+                            <tr>
+                                <th>1</th>
+                                <th>X</th>
+                                <th>2</th>
+                            </tr>
+                            <tr>
+                                <th><input type="checkbox" name="1" value="ON" /></th>
+                                <th><input type="checkbox" name="X" value="ON" /></th>
+                                <th><input type="checkbox" name="2" value="ON" /></th>
+                            </tr>
+                        </table>`;
+                }
+
+                fila.appendChild(cellExt);
+                partidosBody.appendChild(fila);
+            });
+
+            // Actualizar la cabecera con la jornada seleccionada
+            jornadaHeader.textContent = `Jornada ${jornada.slice(7)}`;
+        }
+
+        window.onload = llenarSelects;
+    </script>
 </body>
+
 </html>
